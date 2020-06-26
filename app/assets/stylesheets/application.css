@@ -18,3 +18,9 @@ body {
 font-family: "Graphik", "Helvetica Neue", helvetica, "Apple Color Emoji", arial, sans-serif;
 color: #283c46;
 }
+
+
+
+.trix-content {
+min-height: 10em;
+}

@@ -1,20 +1,20 @@
-<h1>Today</h1>
+<h1><%= @title %></h1>
 
 
 
 
-<%= form_with scope: :article, local: true do |form| %>
+<%= form_for :day, url: day_path(@day.day), method: :patch do |form| %>
+ 
   <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.rich_text_area :content %>
   </p>
  
   <p>
-    <%= form.label :text %><br>
-    <%= form.rich_text_area :text %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
+  <%= form.submit %>
+
+ <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
   </p>
 <% end %>
+
