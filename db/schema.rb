@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_080421) do
+ActiveRecord::Schema.define(version: 2020_06_30_082228) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -50,5 +50,28 @@ ActiveRecord::Schema.define(version: 2020_06_26_080421) do
     t.index ["day"], name: "index_day_notes_on_day", unique: true
   end
 
+  create_table "journal_entries", force: :cascade do |t|
+    t.integer "journal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["journal_id"], name: "index_journal_entries_on_journal_id"
+  end
+
+  create_table "journals", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer "journal_id", null: false
+    t.date "origin"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["journal_id"], name: "index_notes_on_journal_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "journal_entries", "journals"
+  add_foreign_key "notes", "journals"
 end

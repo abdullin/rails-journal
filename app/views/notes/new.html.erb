@@ -1,0 +1,13 @@
+<h1>Add to <%= @journal.name%></h1>
+
+<%= @journal_id %>
+
+
+<%= form_with model: @note, url: journal_notes_path(journal_id: @journal_id) do |form| %>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
+  </div>
+  <%= form.submit "Create" %>
+<% end %>
+<p>Find me in app/views/notes/new.html.erb</p>

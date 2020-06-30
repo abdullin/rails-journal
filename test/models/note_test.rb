@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class JournalControllerTest < ActionDispatch::IntegrationTest
+class NoteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

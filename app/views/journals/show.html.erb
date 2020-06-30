@@ -1,0 +1,16 @@
+<h1><%= @journal.name %></h1>
+<p>
+<%= link_to "Add", new_journal_note_path(journal_id: @journal.id) %>
+</p>
+
+
+<% @journal.notes.each do | note | %>
+  <hr>
+
+  <div>
+
+    <%= note.content %>
+
+      <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
+  </div>
+<% end %>
