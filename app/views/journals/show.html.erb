@@ -5,13 +5,17 @@
 </p>
 
 
-<% @journal.notes.each do | note | %>
-  <hr>
+<% @journal.notes.reverse.each do | note | %>
+    <div class='note-header'>
+      <div style='float:right'>
 
-  <div>
+        <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %> |
 
-    <%= note.content %>
+        <%= note.created_at.strftime("%b %-d, %Y") %> 
 
-      <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
-  </div>
+      </div>
+    </div>
+    <div class='note-content'>
+      <%= note.content %>
+    </div>
 <% end %>
