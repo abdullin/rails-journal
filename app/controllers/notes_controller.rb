@@ -4,14 +4,14 @@ class NotesController < ApplicationController
 
   def create
     journal = Journal.find(params[:journal_id])
-    note = journal.notes.create!(params.require(:note).permit(:content))
+    note = journal.notes.create!(note_params)
     redirect_to journal
   end
 
   def new
-    @journal_id = params[:journal_id]
+    journal_id = params[:journal_id]
     @journal = Journal.find(params[:journal_id])
-    @note = Note.new(journal_id: @journal_id)
+    @note = Note.new(journal_id: journal_id)
   end
 
   def edit
@@ -22,7 +22,6 @@ class NotesController < ApplicationController
     note = Note.find(params[:id])
     note.update_attributes(note_params)
     redirect_to note.journal
-
   end
 
   private

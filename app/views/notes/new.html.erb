@@ -2,7 +2,7 @@
 
 
 
-<%= form_with model: @note, url: journal_notes_path(journal_id: @journal_id) do |form| %>
+<%= form_with model: @note, url: journal_notes_path(journal_id: @journal.id) do |form| %>
   <div class="field">
     <%= form.rich_text_area :content %>
   </div>
