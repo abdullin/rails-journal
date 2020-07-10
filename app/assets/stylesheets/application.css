@@ -25,6 +25,34 @@ color: #283c46;
 }
 
 
+.trix-content h1 {
+font-size: 1.2em;
+margin: 0 0 0.5em;
+}
+
+.trix-content p, .trix-content div {
+  margin: 0;
+}
+
+
+
+.trix-content ul, .trix-content ol {
+  margin: 0.65em 0 0.9em;
+  padding-left: 2em;
+  list-style: disc;
+}
+
+.trix-content ul li, .trix-content ol li {
+  margin-top: 0.3em;
+  margin-left: 0;
+}
+
+.trix-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
 
 
 .note-header {
