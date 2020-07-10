@@ -1,0 +1,19 @@
+<h1>Review#week</h1>
+
+<% @notes.each do | note | %>
+
+  <div class='note-header'>
+    <div style='float:right'>
+      <strong><%= note.journal.name %></strong> | 
+
+
+      <%= note.created_at.strftime("%b %-d, %Y %H:%M") %> |
+
+      <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
+
+    </div>
+  </div>
+  <div class='note-content'>
+    <%= note.content %>
+  </div>
+<% end %>
