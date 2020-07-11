@@ -7,11 +7,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
   <body>
     <div style="max-width: 40em; margin: 0 auto; position: relative;">
-      <%= yield %>
+      <nav>
+
+        <%= link_to "Home", journals_path %> |
+        <%= link_to "Review", review_week_path %>
+
+      </nav>
+      <main style="margin: 0 0.5em">
+        <%= yield %>
+      </main>
     </div> 
   </body>
 </html>
