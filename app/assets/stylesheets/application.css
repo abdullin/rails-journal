@@ -91,6 +91,10 @@ margin: 0 0 0.5em;
 
 .note-header .note-actions {
   text-align: right;
+  float:right;
+}
+
+.note-header .note-title {
 }
 
 .note-content {

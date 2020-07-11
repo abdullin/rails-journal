@@ -3,15 +3,18 @@
 <% @notes.each do | note | %>
 
   <div class='note-header'>
-    <div style='float:right'>
-      <strong><%= note.journal.name %></strong> | 
+    <span class='note-title'>
+
+      <%= note.created_at.strftime("%A %H:%M") %>
+    </span>
+    <span class='note-actions'>
 
 
-      <%= note.created_at.strftime("%b %-d, %Y %H:%M") %> |
+      <%= note.journal.name %> | 
 
       <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
 
-    </div>
+    </span>
   </div>
   <div class='note-content'>
     <%= note.content %>
