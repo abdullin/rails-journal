@@ -3,8 +3,9 @@
 
 <%= form_with model: @note, url: journal_note_path(@note, journal_id: @note.journal_id) do |form| %>
   <div class="field">
-    <%= form.label :content %>
     <%= form.rich_text_area :content %>
   </div>
-  <%= form.submit "Update" %>
+  <div style="text-align:right">
+    <%= form.submit "Update", class: "button" %>
+  </div>
 <% end %>

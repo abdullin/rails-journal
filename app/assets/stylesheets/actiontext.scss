@@ -35,10 +35,20 @@
   }
 }
 
+trix-editor {
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 trix-toolbar {
   .trix-button-group {
     border: none;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
     margin-left: 0 !important;
   }
   .trix-button {
