@@ -9,7 +9,7 @@
 <% @journal.notes.reverse.each do | note | %>
 
   <div class='note-header'>
-    <div style='text-align:right;'>
+    <div class='note-actions'>
       <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %> |
       <%= note.created_at.strftime("%b %-d, %Y") %> 
     </div>
