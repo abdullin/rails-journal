@@ -34,3 +34,15 @@
     }
   }
 }
+
+trix-toolbar {
+  .trix-button-group {
+    border: none;
+    margin-bottom: 0.5em;
+    margin-left: 0 !important;
+  }
+  .trix-button {
+    border: none !important;
+  }
+}
+
