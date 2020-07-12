@@ -78,7 +78,7 @@ margin: 0 0 0.5em;
 
 .note-header {
     display: block;
-    border-top: 1px silver solid;
+    border-top: 1px  #e4e6e8 solid;
     margin-top: 2em;
     margin-bottom: 1em;
     padding: 0.5em;
@@ -95,10 +95,11 @@ margin: 0 0 0.5em;
 }
 
 .note-header .note-title {
-  font-weight: bolder;
+  display: inline;
 }
 
+
 .note-content {
-  padding: 1em 0em;
+  padding: 0em 0em;
 
 }

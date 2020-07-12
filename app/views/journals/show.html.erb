@@ -9,9 +9,8 @@
 <% @journal.notes.order(created_at: :desc).each do | note | %>
 
   <div class='note-header'>
-    <span class='note-title'>
-      <%= note.created_at.strftime("%B %-d") %> 
-    </span>
+    <h2 class="note-title">
+        <%= note.created_at.strftime("%B %-d") %> </h2>
     <div class='note-actions'>
       <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
     </div>

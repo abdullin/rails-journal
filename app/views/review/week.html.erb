@@ -2,17 +2,14 @@
 
 <% @notes.group_by{ |n| n.created_at.to_date.cwday }.each do | cwday, notes | %>
   <div style="text-align:right">
-    <h2 style="display:inline">  <%= Date::DAYNAMES[cwday] %> </h2>
+    <h2 style="display:inline">  <%= notes.first.created_at.strftime("%A, %B %-d") %> </h2>
   </div>
   <% notes.each do | note | %>
 
     <div class='note-header'>
-      <span class='note-title'>
-        <%= note.journal.name %>
-      </span>
       <span class='note-actions'>
 
-
+        <%= note.journal.name %> | 
 
         <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
 
