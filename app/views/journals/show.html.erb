@@ -6,12 +6,14 @@
 </div>
 
 
-<% @journal.notes.reverse.each do | note | %>
+<% @journal.notes.order(created_at: :desc).each do | note | %>
 
   <div class='note-header'>
+    <span class='note-title'>
+      <%= note.created_at.strftime("%B %-d") %> 
+    </span>
     <div class='note-actions'>
-      <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %> |
-      <%= note.created_at.strftime("%b %-d, %Y") %> 
+      <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
     </div>
   </div>
   <div class='note-content'>

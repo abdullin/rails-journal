@@ -95,6 +95,7 @@ margin: 0 0 0.5em;
 }
 
 .note-header .note-title {
+  font-weight: bolder;
 }
 
 .note-content {
