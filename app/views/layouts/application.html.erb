@@ -14,9 +14,10 @@
     <div style="max-width: 40em; margin: 0 auto; position: relative;">
       <nav style="margin:1em;">
         <%= link_to "Journals", journals_path %> |
-        <%= link_to "This Week", review_week_path %>
+        <%= link_to "This Week", review_week_path %> |
+        <%= link_to "Today", review_day_path %>
       </nav>
-      <main style="margin: 0 1em;">
+      <main style="margin: 0 1em 2em 1em;">
         <%= yield %>
       </main>
     </div> 
