@@ -8,9 +8,20 @@
 
 <% @journal.notes.order(created_at: :desc).each do | note | %>
 
+
   <div class='note-header'>
-    <h2 class="note-title">
-        <%= note.created_at.strftime("%B %-d") %> </h2>
+
+    <% if note.timeless? %>
+      <h2 class="note-title">
+        Overview
+      </h2>
+    <% else %>
+
+      <h2 class="note-title">
+        <%= note.created_at.strftime("%B %-d") %>
+      </h2>
+    <% end %>
+
     <div class='note-actions'>
       <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
     </div>
