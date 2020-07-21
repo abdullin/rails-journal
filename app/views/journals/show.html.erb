@@ -18,7 +18,7 @@
     <% else %>
 
       <h2 class="note-title">
-        <%= note.created_at.strftime("%b %d") %>
+        <%= note.created_at.strftime("%A %b %d") %>
         <% if Date.current.year != note.created_at.year %>
           <%= note.created_at.year %>
         <% end %>
