@@ -1,4 +1,4 @@
-<h1>Notes#edit</h1>
+<h1>Edit <%=@note.journal.name %></h1>
 
 
 <%= form_with model: @note, url: journal_note_path(@note, journal_id: @note.journal_id) do |form| %>

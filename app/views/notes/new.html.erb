@@ -1,4 +1,6 @@
-<h1>Add to <%= @journal.name%></h1>
+<h1>
+  Add to <%= @journal.name%>
+</h1>
 
 <%= form_with model: @note, url: journal_notes_path(journal_id: @journal.id) do |form| %>
   <div class="field">
