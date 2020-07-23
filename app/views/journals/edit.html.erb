@@ -1,0 +1,11 @@
+<h1>Edit <%=@journal.name %></h1>
+
+
+<%= form_with model: @journal, url: journal_path(@journal) do |form| %>
+  <div class="field">
+    <%= form.rich_text_area :content %>
+  </div>
+  <div style="text-align:right">
+    <%= form.submit "Update", class: "button" %>
+  </div>
+<% end %>

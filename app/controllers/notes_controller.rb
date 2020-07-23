@@ -23,6 +23,12 @@ class NotesController < ApplicationController
     redirect_to note.journal
   end
 
+  def destroy
+    note = Note.find(params[:id])
+    note.update(archived_at: DateTime.now.new_offset(0))
+    redirect_to note.journal
+  end
+
   private
   def note_params
     params.require(:note).permit(:content, :created_at)

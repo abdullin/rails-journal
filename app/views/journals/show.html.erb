@@ -1,12 +1,21 @@
+<div>
+
 <h1>
-  <%= @journal.name %>
-</h1>
-<div style="text-align:center">
-  <%= link_to "Add Note", new_journal_note_path(journal_id: @journal.id), class: "button" %>
+    <%= @journal.name %>
+  </h1>
+  <div class="journal_menu">
+
+    <%= link_to "Add Note", new_journal_note_path(journal_id: @journal.id)%>  | 
+
+    <%= link_to "Edit", edit_journal_path(@journal) %>
+  </div>
+
 </div>
 
+<%= @journal.content %>
 
-<% @journal.notes.order(created_at: :desc).each do | note | %>
+
+<% @notes.each do | note | %>
 
 
   <div class='note-header'>

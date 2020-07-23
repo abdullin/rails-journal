@@ -10,5 +10,7 @@
   </div>
   <div style="text-align:right">
     <%= form.submit "Update", class: "button" %>
+    
+    <%= link_to "Delete", journal_note_path(@note, journal_id:@note.journal_id),  :method => :delete %>
   </div>
 <% end %>
