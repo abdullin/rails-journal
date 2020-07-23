@@ -1,14 +1,16 @@
 <h1>
-  Add to <%= @journal.name%>
+  <%= @journal.name%>
 </h1>
 
 <%= form_with model: @note, url: journal_notes_path(journal_id: @journal.id) do |form| %>
   <div class="field">
     <%= form.rich_text_area :content %>
+  </div>
+  <div class="field" style="padding-top:0.5em">
     <%= form.label :created_at %>
-    <%= form.datetime_field :created_at, placeholder: "yyyy-mm-dd" %>
+    <%= form.date_field :created_at, placeholder: "yyyy-mm-dd" %>
   </div>
   <div style="text-align: right">
-    <%= form.submit "Create", class: "button"  %>
+    <%= form.submit "Add Note", class: "button"  %>
   </div>
 <% end %>
