@@ -5,8 +5,8 @@ class JournalsController < ApplicationController
 
   def show
     @journal = Journal.find(params[:id])
-
-    @notes = @journal.notes.where(archived_at:nil).order(created_at: :desc)
+    @future_count = @journal.notes.future.count
+    @notes = @journal.notes.visible.order(created_at: :desc)
   end
 
 

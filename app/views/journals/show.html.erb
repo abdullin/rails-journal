@@ -6,7 +6,11 @@
 
 
 <%= @journal.content %>
-  <div class="journal_menu control">
+<div class="journal_menu control">
+
+  <% if @future_count > 0 %>
+    <%= @future_count %> future ·
+  <% end %>
 
     <strong><%= link_to "new", new_journal_note_path(journal_id: @journal.id)%></strong> ·
 
