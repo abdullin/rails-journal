@@ -9,6 +9,11 @@ class JournalsController < ApplicationController
     @notes = @journal.notes.visible.order(created_at: :desc)
   end
 
+  def future
+    @journal = Journal.find(params[:id])
+    @notes = @journal.notes.future.order(created_at: :desc)
+  end
+
 
   def edit
     @journal = Journal.find(params[:id])

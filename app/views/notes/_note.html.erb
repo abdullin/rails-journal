@@ -1,0 +1,19 @@
+<div class='note-header'>
+
+  <strong class="note-title">
+    <%= note.created_at.strftime("%A") %>
+  </strong>
+
+  <div class='note-actions control'>
+    <strong>
+      <%= note.created_at.strftime("%b %d") %>
+      <% if Date.current.year != note.created_at.year %>
+        <%= note.created_at.year %>
+      <% end %>
+    </strong>
+    · <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
+  </div>
+</div>
+<div class='note-content'>
+  <%= note.content %>
+</div>

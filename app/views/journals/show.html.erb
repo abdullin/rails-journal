@@ -1,46 +1,17 @@
-<div>
-
 <h1>
-    <%= @journal.name %>
+  <%= @journal.name %>
 </h1>
-
 
 <%= @journal.content %>
 <div class="journal_menu control">
 
   <% if @future_count > 0 %>
-    <%= @future_count %> future ·
+    <%= link_to "#{@future_count} future", future_journal_path(@journal) %> ·
   <% end %>
 
-    <strong><%= link_to "add", new_journal_note_path(journal_id: @journal.id)%></strong> ·
+  <strong><%= link_to "add", new_journal_note_path(journal_id: @journal.id)%></strong> ·
 
-    <%= link_to "edit", edit_journal_path(@journal) %>
-  </div>
-
+  <%= link_to "edit", edit_journal_path(@journal) %>
 </div>
 
-
-
-<% @notes.each do | note | %>
-
-
-  <div class='note-header'>
-
-    <strong class="note-title">
-      <%= note.created_at.strftime("%A") %>
-    </strong>
-
-    <div class='note-actions control'>
-      <strong>
-          <%= note.created_at.strftime("%b %d") %>
-          <% if Date.current.year != note.created_at.year %>
-            <%= note.created_at.year %>
-          <% end %>
-      </strong>
-       · <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
-    </div>
-  </div>
-  <div class='note-content'>
-    <%= note.content %>
-  </div>
-<% end %>
+<%= render @notes %>
