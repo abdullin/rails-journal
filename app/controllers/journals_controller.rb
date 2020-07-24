@@ -1,6 +1,6 @@
 class JournalsController < ApplicationController
   def index
-    @journals = Journal.all
+    @journals = Journal.all.order(updated_at: :desc)
   end
 
   def show

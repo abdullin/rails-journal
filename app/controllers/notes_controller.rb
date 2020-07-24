@@ -9,6 +9,7 @@ class NotesController < ApplicationController
   def create
     journal = Journal.find(params[:journal_id])
     note = journal.notes.create!(note_params)
+    note.journal.touch
     redirect_to journal
   end
 
@@ -20,6 +21,7 @@ class NotesController < ApplicationController
   def update
     note = Note.find(params[:id])
     note.update_attributes(note_params)
+    note.journal.touch
     redirect_to note.journal
   end
 
