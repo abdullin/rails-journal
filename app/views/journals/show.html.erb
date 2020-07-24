@@ -12,7 +12,7 @@
     <%= @future_count %> future ·
   <% end %>
 
-    <strong><%= link_to "new", new_journal_note_path(journal_id: @journal.id)%></strong> ·
+    <strong><%= link_to "add", new_journal_note_path(journal_id: @journal.id)%></strong> ·
 
     <%= link_to "edit", edit_journal_path(@journal) %>
   </div>
