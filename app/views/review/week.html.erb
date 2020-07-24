@@ -5,12 +5,9 @@
   <% notes.each do | note | %>
 
     <div class='note-header'>
-      <strong>
-        <%= note.journal.name %>
-      </strong>
-      <span class='note-actions control'>
-        <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
-      </span>
+      <div class='mute note-title'>
+        <%= link_to note.journal.name, journal_path(note.journal) %>
+      </div>
     </div>
     <div class='note-content'>
       <%= note.content %>

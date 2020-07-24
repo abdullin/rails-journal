@@ -4,7 +4,7 @@
     <%= note.created_at.strftime("%A") %>
   </strong>
 
-  <div class='note-actions control'>
+  <div class='note-actions mute'>
     <strong>
       <%= note.created_at.strftime("%b %d") %>
       <% if Date.current.year != note.created_at.year %>

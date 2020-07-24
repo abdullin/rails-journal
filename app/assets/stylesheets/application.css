@@ -83,7 +83,6 @@ margin: 0 0 0.5em;
 
 
 .note-header {
-    display: block;
     border-top: 1px  #e4e6e8 solid;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
@@ -93,16 +92,16 @@ margin: 0 0 0.5em;
   margin-right: -1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+
+display: flex; justify-content: space-around;
 }
 
 .note-header .note-actions {
-  text-align: right;
-  float:right;
+  margin-left:auto;
 }
 
-
 .note-header .note-title {
-  display: inline;
+  margin-right:auto;
 }
 
 
@@ -129,11 +128,11 @@ a {
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.control a {
+.mute a {
   color: #6a737d;
 }
 
-.control a:hover {
+.mute a:hover {
   border-bottom-color: #6a737d;
 }
 
