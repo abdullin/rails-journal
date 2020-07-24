@@ -8,8 +8,8 @@
       <strong>
         <%= note.journal.name %>
       </strong>
-      <span class='note-actions'>
-        <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
+      <span class='note-actions control'>
+        <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
       </span>
     </div>
     <div class='note-content'>
