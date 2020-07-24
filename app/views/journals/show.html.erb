@@ -26,22 +26,16 @@
 
   <div class='note-header'>
 
-    <% if !note.timeless? %>
-      <strong class="note-title">
-        <%= note.created_at.strftime("%A") %>
-      </strong>
-    <% end %>
+    <strong class="note-title">
+      <%= note.created_at.strftime("%A") %>
+    </strong>
 
     <div class='note-actions control'>
       <strong>
-
-        <% if not note.timeless? %>
-
-        <%= note.created_at.strftime("%b %d") %>
-        <% if Date.current.year != note.created_at.year %>
-          <%= note.created_at.year %>
-        <% end %>
-      <% end %>
+          <%= note.created_at.strftime("%b %d") %>
+          <% if Date.current.year != note.created_at.year %>
+            <%= note.created_at.year %>
+          <% end %>
       </strong>
        · <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
     </div>
