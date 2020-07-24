@@ -2,17 +2,19 @@
 
 <h1>
     <%= @journal.name %>
-  </h1>
-  <div class="journal_menu">
+</h1>
 
-    <%= link_to "Add Note", new_journal_note_path(journal_id: @journal.id)%>  | 
 
-    <%= link_to "Edit", edit_journal_path(@journal) %>
+<%= @journal.content %>
+  <div class="journal_menu control">
+
+    <strong><%= link_to "new", new_journal_note_path(journal_id: @journal.id)%></strong> ·
+
+    <%= link_to "edit", edit_journal_path(@journal) %>
   </div>
 
 </div>
 
-<%= @journal.content %>
 
 
 <% @notes.each do | note | %>
@@ -26,7 +28,7 @@
       </strong>
     <% end %>
 
-    <div class='note-actions'>
+    <div class='note-actions control'>
       <strong>
 
         <% if not note.timeless? %>
@@ -37,7 +39,7 @@
         <% end %>
       <% end %>
       </strong>
-      <%= link_to "Edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
+       · <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
     </div>
   </div>
   <div class='note-content'>
