@@ -14,4 +14,9 @@ class ReviewController < ApplicationController
     render "week"
   end
 
+  def future
+    @notes = Note.future.reverse
+    render "week"
+  end
+
 end
