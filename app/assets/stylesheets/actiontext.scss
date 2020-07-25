@@ -54,5 +54,11 @@ trix-toolbar {
   .trix-button {
     border: none !important;
   }
+
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
 }
 
