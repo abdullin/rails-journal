@@ -1,7 +1,11 @@
 <div class='note-header'>
 
   <strong class="note-title">
-    <%= note.created_at.strftime("%A") %>
+    <% if note.created_at.between?(7.days.ago,Date.today.end_of_day) %>
+      <%= note.created_at.strftime("%A") %>
+    <% else %>
+      <%= time_ago_in_words(note.created_at) %> ago
+    <% end %>
   </strong>
 
   <div class='note-actions mute'>
