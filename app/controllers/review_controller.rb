@@ -1,22 +1,22 @@
 class ReviewController < ApplicationController
   def week
-    today = Date.today
+    
+    @delta = params[:week].to_i || 0
+    @date = Date.today + @delta.week
     @notes = Note.visible
-      .where(:created_at => today.beginning_of_week..today.end_of_week)
+      .where(:created_at => @date.beginning_of_week..@date.end_of_week)
       .reverse
   end
 
   def day
-    today = Date.today
+    @date = Date.today
     @notes = Note.visible
-      .where(:created_at => today.beginning_of_day..today.end_of_day)
+      .where(:created_at => @date.beginning_of_day..@date.end_of_day)
       .reverse
-    render "week"
   end
 
   def future
     @notes = Note.future.reverse
-    render "week"
   end
 
 end
