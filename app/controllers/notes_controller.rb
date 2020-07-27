@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   def new
     journal_id = params[:journal_id]
     @journal = Journal.find(params[:journal_id])
-    @note = Note.new(journal_id: journal_id, created_at: Time.now)
+    @note = Note.new(journal_id: journal_id)
   end
 
   def create
