@@ -12,7 +12,6 @@ class ReviewController < ApplicationController
     @date = Date.today
     @notes = Note.visible
       .where(:created_at => @date.beginning_of_day..@date.end_of_day)
-      .reverse
   end
 
   def future
