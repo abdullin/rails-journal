@@ -1,8 +1,17 @@
 <h1>Journals</h1>
+
+<% @groups.each do | category, journals | %>
+  <div>
+    <strong>
+      <%= category.present? ? category.name : "Other" %>
+    </strong>
+  </div>
+
 <ul>
-  <% @journals.each do | journal |%>
+  <% journals.each do | journal |%>
     <li>
       <%= link_to journal.name, journal_path(journal) %>
     </li>
   <% end %>
 </ul>
+<% end %>

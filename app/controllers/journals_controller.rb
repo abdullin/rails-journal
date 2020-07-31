@@ -1,6 +1,8 @@
 class JournalsController < ApplicationController
   def index
-    @journals = Journal.all.order(updated_at: :desc)
+    @groups = Journal.all
+      .order(updated_at: :desc)
+      .group_by(&:category)
   end
 
   def show
@@ -30,6 +32,6 @@ class JournalsController < ApplicationController
 
   private
   def journal_params
-    params.require(:journal).permit(:content, :name)
+    params.require(:journal).permit(:content, :name, :category_id)
   end
 end

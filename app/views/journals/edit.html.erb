@@ -6,6 +6,9 @@
     <%= form.text_field :name %>
   </div>
   <div class="field">
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @journal.category_id), :prompt => "Select One" %>
+  </div>
+  <div class="field">
     <%= form.rich_text_area :content %>
   </div>
   <div style="text-align:right">
