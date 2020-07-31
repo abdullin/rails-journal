@@ -3,6 +3,7 @@ class JournalsController < ApplicationController
     @groups = Journal.all
       .order(updated_at: :desc)
       .group_by(&:category)
+      .sort_by { |cat, rest| cat.present? ? cat.name.downcase : "zzz"}
   end
 
   def show
