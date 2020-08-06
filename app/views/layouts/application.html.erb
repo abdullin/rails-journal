@@ -18,6 +18,12 @@
         <%= link_to "Today", review_day_path %> ·
         <%= link_to "Future", review_future_path %>
       </nav>
+
+      <% flash.each do |type, msg| %>
+        <div>
+          <%= msg %>
+        </div>
+      <% end %>
       <main style="margin: 0 1em 2em 1em;">
         <%= yield %>
       </main>
