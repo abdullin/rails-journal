@@ -32,13 +32,35 @@ html {
     }
 
 
-
-input {
+.input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+
+transition: box-shadow 0.15s ease-in-out;
+padding: 0.5em;
+resize: none;
+
+
+max-width: 100%;
+background-color: #fff;
+border: 1px solid #d9d9d9;
+border-radius: 0.4rem;
+line-height: 1.5;
+font-family: inherit;
+font-weight: inherit;
+font-size: inherit;
+color: inherit;
+box-sizing: border-box;
 }
 
+.input--select {
+padding-left: 1em;
+padding-right: 2em;
+border-radius: 1.5em;
+background: #fff ;
+background-size: 0.55em;
+}
 
 body {
   font-family: "Graphik", "Helvetica Neue", helvetica, "Apple Color Emoji", arial, sans-serif;

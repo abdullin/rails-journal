@@ -3,10 +3,10 @@
 
 <%= form_with model: @journal, url: journal_path(@journal) do |form| %>
   <div class="field">
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"input" %>
   </div>
   <div class="field">
-    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @journal.category_id), :prompt => "Select One" %>
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @journal.category_id), {prompt: "Select One"}, { class:"input--select input" } %>
   </div>
   <div class="field">
     <%= form.rich_text_area :content %>
