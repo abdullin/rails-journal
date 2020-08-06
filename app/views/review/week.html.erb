@@ -1,11 +1,19 @@
 <h1>
-  Week <%= @date.cweek %>: 
+  W<%= @date.cweek %>: 
   <%=@date.beginning_of_week.strftime("%B %-d") %> - 
   <%= @date.end_of_week.strftime("%B %-d")%>
 </h1>
+<div style="margin-bottom:1em">
+  <% @categories.each_with_index do | cat, i | %>
+    <%= " ·" unless i == 0 %>
+    <%= tag.span class: @category == cat.id ? "" : "mute" do %>
+      <%= link_to cat.name, review_week_path(week: @delta, category: cat.id) %>
+    <% end %>
+  <% end %>
+</div>
 <div class="mute">
-  <%= link_to "<< previous", review_week_path(week: @delta-1) %>
-  <%= link_to "next >>", review_week_path(week: @delta+1), style: "float:right" %> 
+  <%= link_to "<< previous", review_week_path(week: @delta-1, category: @category) %>
+  <%= link_to "next >>", review_week_path(week: @delta+1, category: @category), style: "float:right" %> 
 </div>
 
 <% @notes.group_by{ |n| n.created_at.to_date.cwday }.each do | cwday, notes | %>
