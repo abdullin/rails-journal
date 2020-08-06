@@ -16,13 +16,18 @@ class NotesController < ApplicationController
 
   def edit
     @note = Note.find(params[:id])
+    @note.created_at = nil
   end
 
   def update
-    note = Note.find(params[:id])
-    note.update_attributes(note_params)
-    note.journal.touch
-    redirect_to note.journal
+    @note = Note.find(params[:id])
+    if @note.update_attributes(note_params.reject{|_, v| v.blank?})
+      @note.journal.touch
+      redirect_to @note.journal
+    else
+      flash[:error] << @note.errors.full_messages
+      render "edit"
+    end
   end
 
   def destroy

@@ -6,11 +6,10 @@
     <%= form.rich_text_area :content %>
 
     <%= form.label :created_at %>
-    <%= form.datetime_field :created_at, placeholder: "yyyy-mm-dd" %>
+    <%= form.datetime_field :created_at %>
   </div>
   <div style="text-align:right">
     <%= form.submit "Update", class: "button" %>
-    
     <%= link_to "Delete", journal_note_path(@note, journal_id:@note.journal_id),  :method => :delete %>
   </div>
 <% end %>
