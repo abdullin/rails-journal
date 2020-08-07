@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_31_114951) do
+ActiveRecord::Schema.define(version: 2020_08_06_164706) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(version: 2020_07_31_114951) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "archived_at"
     t.index ["journal_id"], name: "index_notes_on_journal_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

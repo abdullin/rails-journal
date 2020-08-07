@@ -10,17 +10,16 @@ class ReviewController < ApplicationController
 
     @category  = params.fetch(:category, -1).to_i
     notes = notes.with_category(@category) unless @category== -1
-    @notes = notes.reverse
+    @notes = notes.chronologically
   end
 
   def day
     @date = Date.today
-    @notes = Note.visible
-      .where(:created_at => @date.beginning_of_day..@date.end_of_day)
+    @notes = Note.visible.within_day(@date).chronologically
   end
 
   def future
-    @notes = Note.future.reverse
+    @notes = Note.future.chronologically
   end
 
   private 

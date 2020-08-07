@@ -10,12 +10,12 @@ class JournalsController < ApplicationController
     @journal = Journal.find(params[:id])
     @title = @journal.name
     @future_count = @journal.notes.future.count
-    @notes = @journal.notes.visible.order(created_at: :desc)
+    @notes = @journal.notes.visible.latest_first
   end
 
   def future
     @journal = Journal.find(params[:id])
-    @notes = @journal.notes.future.order(created_at: :desc)
+    @notes = @journal.notes.future.chronologically
   end
 
 

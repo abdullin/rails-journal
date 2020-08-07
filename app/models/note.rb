@@ -8,4 +8,8 @@ class Note < ApplicationRecord
 
   scope :with_category, lambda { | id | joins(:journal).where("journals.category_id = ?", id) }
   scope :within_week, lambda { | date | where(:created_at => date.beginning_of_week..date.end_of_week) }
+  scope :within_day, lambda { | date | where(:created_at => date.beginning_of_day..date.end_of_day) }
+
+  scope :chronologically, -> { order(created_at: :asc) }
+  scope :latest_first, -> { order(created_at: :desc) }
 end

@@ -8,7 +8,7 @@
   </div>
   <div class="field" style="padding-top:0.5em">
     <%= form.label :created_at %>
-    <%= form.date_field :created_at, placeholder: "yyyy-mm-dd" %>
+    <%= form.date_field :created_at, placeholder: Date.today.strftime("%F") %>
   </div>
   <div style="text-align: right">
     <%= form.submit "Add Note", class: "button"  %>
