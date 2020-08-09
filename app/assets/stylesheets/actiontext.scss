@@ -69,7 +69,7 @@ trix-toolbar {
   word-break: break-word;
 
   .mention {
-    a {
+    a, a:hover {
       color: #cd2e29;
     }
   }
