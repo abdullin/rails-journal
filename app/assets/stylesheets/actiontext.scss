@@ -62,3 +62,40 @@ trix-toolbar {
   background-color: white;
 }
 
+
+.trix-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  .mention {
+    a {
+      color: #cd2e29;
+    }
+  }
+
+
+  p, div {
+    margin: 0;
+  }
+
+  blockquote {
+    color: #6a737d;
+  }
+
+  h1 {
+    font-size: 1.2em;
+    margin: 0 0 0.5em;
+  }
+
+  ul, ol {
+    margin: 0.65em 0 0.9em;
+    padding-left: 2em;
+    list-style: disc;
+  }
+
+  ul li, ol li {
+    margin-top: 0.3em;
+    margin-left: 0;
+  }
+}

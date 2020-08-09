@@ -10,5 +10,10 @@ Rails.application.routes.draw do
     resources :notes, only: [:create, :new, :edit, :update, :destroy]
   end
 
+  resources :people, only: [:index, :show]
+
+  # only mentionable
+  resources :mentions, only: [:index]
+
   root 'journals#index'
 end

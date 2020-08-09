@@ -4,11 +4,11 @@
 
 <%= form_with model: @note, url: journal_notes_path(journal_id: @journal.id) do |form| %>
   <div class="field">
-    <%= form.rich_text_area :content %>
+    <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"} %>
   </div>
   <div class="field" style="padding-top:0.5em">
     <%= form.label :created_at %>
-    <%= form.date_field :created_at, placeholder: Date.today.strftime("%F") %>
+    <%= form.date_field :created_at, class:"input",  placeholder: Date.today.strftime("%F") %>
   </div>
   <div style="text-align: right">
     <%= form.submit "Add Note", class: "button input"  %>

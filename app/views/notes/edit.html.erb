@@ -1,13 +1,15 @@
-<h1>Edit <%=@note.journal.name %></h1>
-
+<h1>
+  Edit <%=@note.journal.name %>
+</h1>
 
 <%= form_with model: @note, url: journal_note_path(@note, journal_id: @note.journal_id) do |form| %>
-  <div class="field">
-    <%= form.rich_text_area :content %>
+  <div>
+    <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"} %>
 
     <%= form.label :created_at %>
-    <%= form.datetime_field :created_at, class: "input", placeholder: "yyyy-mm-dd"%>
+    <%= form.datetime_field :created_at, class: "input", placeholder: Date.today.strftime("%F") %>
   </div>
+
   <div style="text-align:right">
     <%= form.submit "Update", class: "button" %>
     <%= link_to "Delete", journal_note_path(@note, journal_id:@note.journal_id),  :method => :delete %>

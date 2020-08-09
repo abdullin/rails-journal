@@ -87,58 +87,18 @@ html {
 }
 
 
-.trix-content {
-}
-
-
-.trix-content h1 {
-font-size: 1.2em;
-margin: 0 0 0.5em;
-}
-
-.trix-content p, .trix-content div {
-  margin: 0;
-}
-
-
-
-.trix-content ul, .trix-content ol {
-  margin: 0.65em 0 0.9em;
-  padding-left: 2em;
-  list-style: disc;
-}
-
-.trix-content ul li, .trix-content ol li {
-  margin-top: 0.3em;
-  margin-left: 0;
-}
-
-.trix-content {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-.trix-content blockquote {
-  color: #6a737d;
-
-
-}
-
-
-
 .note-header {
-    border-top: 1px  #e4e6e8 solid;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    padding: 0.5em;
+  border-top: 1px  #e4e6e8 solid;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
 
   margin-left: -1rem;
   margin-right: -1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 
-display: flex; justify-content: space-around;
+  display: flex; justify-content: space-around;
 }
 
 .note-header .note-actions {
@@ -152,16 +112,10 @@ display: flex; justify-content: space-around;
 
 .note-content {
   padding: 0em 0em;
-
-}
-
-#top-menu {
-
-
 }
 
 
-a:hover {
+a:hover{
   border-bottom: solid 1px #cd2e29;
 }
 
@@ -184,7 +138,17 @@ a {
 
 
 
+
 .journal_menu {
   text-align:right;
+}
+
+
+.tribute-container {
+  border-radius:4px;
+
+  li {
+    background: #fff;
+  }
 }
 
