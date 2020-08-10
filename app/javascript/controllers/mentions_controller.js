@@ -66,6 +66,6 @@ export default class extends Controller {
       content: mention.content
     })
     this.editor.insertAttachment(attachment)
-    this.editor.insertString(" ")
+    // tthis.editor.insertString(" ")
   }
 }
