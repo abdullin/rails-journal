@@ -15,7 +15,8 @@ export default class extends Controller {
 
   initTribute(){
     this.tribute = new Tribute({
-      allowSpaces: true,
+      allowSpaces: false,
+      trigger: '@',
       lookup: "name",
       values: this.fetchMentions,
       replaceTextSuffix: '',
@@ -32,11 +33,15 @@ export default class extends Controller {
 
   disconnect(){
     this.tribute.detach(this.fieldTarget)
+
+    this.fieldTarget.removeEventListener("tribute-replaced", this.replaced)
+    this.fieldTarget.removeEventListener("keydown", this.record_position)
   }
 
   record_position(e) {
     if (e.key == '@') {
       this.startPos = this.editor.getPosition()
+      //this.tribute.showMenuForCollection(this.fieldTarget)
     }
   }
 
