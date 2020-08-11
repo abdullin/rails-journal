@@ -69,8 +69,15 @@ trix-toolbar {
   word-break: break-word;
 
   .mention {
-    a, a:hover {
-      color: #cd2e29;
+    a {
+      /*color: #cd2e29;*/
+
+      color: inherit;
+      font-style: italic;
+    }
+
+    a:hover {
+      border-bottom-color: inherit;
     }
   }
 
