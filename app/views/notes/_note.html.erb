@@ -1,12 +1,16 @@
-<div class='note-header'>
 
-  <strong class="note-title">
-    <% if note.created_at.between?(7.days.ago,Date.today.end_of_day) %>
+  <% note_class = note.is_future ? "note-future" : "note-present" %>
+  <div class='note-header <%= note_class %>'>
+
+    <strong class="note-title">
+      <% if note.created_at > Date.today.end_of_day %>
+        in <%= time_ago_in_words(note.created_at) %>
+    <% elsif note.created_at.between?(7.days.ago,Date.today.end_of_day) %>
       <%= note.created_at.strftime("%A") %>
     <% else %>
       <%= time_ago_in_words(note.created_at) %> ago
     <% end %>
-  </strong>
+    </strong>
 
   <div class='note-actions mute'>
     <strong>
@@ -15,6 +19,10 @@
         <%= note.created_at.year %>
       <% end %>
     </strong>
+    <% if note.is_future %>
+      · future
+    <% end %>
+
     · <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
   </div>
 </div>
