@@ -1,4 +1,5 @@
-<div class='note-header'>
+<% note_class = note.future ? "note-future" : "note-present" %>
+<div class='note-header <%= note_class %>'>
   <div class='mute note-title'>
     <%= link_to note.journal.name, journal_path(note.journal) %>
   </div>
