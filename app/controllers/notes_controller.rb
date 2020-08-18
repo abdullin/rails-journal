@@ -10,8 +10,6 @@ class NotesController < ApplicationController
     journal = Journal.find(params[:journal_id])
     note = journal.notes.create!(note_params)
 
-    note.update(is_future: true) if note.created_at.future?
-
     note.journal.touch
     redirect_to journal
   end

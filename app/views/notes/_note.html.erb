@@ -1,5 +1,5 @@
 
-  <% note_class = note.is_future ? "note-future" : "note-present" %>
+  <% note_class = note.future ? "note-future" : "note-present" %>
   <div class='note-header <%= note_class %>'>
 
     <strong class="note-title">
@@ -19,7 +19,7 @@
         <%= note.created_at.year %>
       <% end %>
     </strong>
-    <% if note.is_future %>
+    <% if note.future %>
       · future
     <% end %>
 

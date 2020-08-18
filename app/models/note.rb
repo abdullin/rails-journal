@@ -12,4 +12,12 @@ class Note < ApplicationRecord
 
   scope :chronologically, -> { order(created_at: :asc) }
   scope :latest_first, -> { order(created_at: :desc) }
+
+  before_save :set_future_flag
+
+  private
+  def set_future_flag
+    # if note was created as future, keep it
+    self.future = created_at.future?
+  end
 end
