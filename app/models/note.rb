@@ -17,7 +17,6 @@ class Note < ApplicationRecord
 
   private
   def set_future_flag
-    # if note was created as future, keep it
-    self.future = created_at.future?
+    self.future = created_at.present? && created_at.future? 
   end
 end
