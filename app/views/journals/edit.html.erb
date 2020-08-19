@@ -9,7 +9,7 @@
     <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @journal.category_id), {prompt: "Select One"}, { class:"input--select input" } %>
   </div>
   <div class="field">
-    <%= form.rich_text_area :content %>
+    <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"}  %>
   </div>
   <div style="text-align:right">
     <%= form.submit "Update", class: "button" %>
