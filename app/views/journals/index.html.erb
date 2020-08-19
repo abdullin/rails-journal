@@ -7,11 +7,12 @@
     </strong>
   </div>
 
-<ul>
-  <% journals.each do | journal |%>
-    <li>
-      <%= link_to journal.name, journal_path(journal) %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% journals.each do | journal |%>
+      <% journal_class = "mute" if journal.is_cold? %>
+      <li class="<%= journal_class %>">
+        <%= link_to journal.name, journal_path(journal) %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
