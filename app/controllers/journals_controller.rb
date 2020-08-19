@@ -1,7 +1,9 @@
 class JournalsController < ApplicationController
   def index
+
     @groups = Journal.all
       .order(updated_at: :desc)
+      .reject(&:is_cold?)
       .group_by(&:category)
       .sort_by { |cat, rest| cat.present? ? cat.name.downcase : "zzz"}
   end

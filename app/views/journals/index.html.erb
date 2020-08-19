@@ -9,7 +9,7 @@
 
   <ul>
     <% journals.each do | journal |%>
-      <% journal_class = "mute" if journal.is_cold? %>
+      <% journal_class = "mute" if journal.is_cool? %>
       <li class="<%= journal_class %>">
         <%= link_to journal.name, journal_path(journal) %>
       </li>
