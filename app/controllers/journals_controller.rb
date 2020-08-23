@@ -1,12 +1,5 @@
 class JournalsController < ApplicationController
-  def index
-
-    @groups = Journal.all
-      .order(updated_at: :desc)
-      .reject(&:is_cold?)
-      .group_by(&:category)
-      .sort_by { |cat, rest| cat.present? ? cat.name.downcase : "zzz"}
-  end
+  
 
   def show
     @journal = Journal.find(params[:id])
@@ -37,4 +30,5 @@ class JournalsController < ApplicationController
   def journal_params
     params.require(:journal).permit(:content, :name, :category_id)
   end
+
 end
