@@ -1,9 +1,0 @@
-<h1>Future</h1>
-
-<% @notes.group_by{ |n| n.created_at.to_date }.each do | date, notes | %>
-  <h2 style="text-align:right">
-    <%= date.strftime("%A, %B %-d") %> 
-  </h2>
-
-  <%= render partial: "note", collection: notes %>
-<% end %>

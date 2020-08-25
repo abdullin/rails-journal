@@ -2,7 +2,6 @@ class ReviewController < ApplicationController
   def week
     @categories = load_categories
 
-
     @delta = params[:week].to_i || 0
     @date = Date.today + @delta.week
 
@@ -16,10 +15,6 @@ class ReviewController < ApplicationController
   def day
     @date = Date.today
     @notes = Note.visible.within_day(@date).chronologically
-  end
-
-  def future
-    @notes = Note.future.chronologically
   end
 
   private 
