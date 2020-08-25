@@ -1,3 +1,0 @@
-#!/bin/bash
-
-tar vczf /var/lib/journal/backup.$(date +"%Y-%m-%d").tar.gz storage db/development.sqlite3
