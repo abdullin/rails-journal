@@ -9,8 +9,9 @@
 
   <ul>
     <% journals.each do | journal |%>
-      <% journal_class = "mute" if journal.is_cool? %>
-      <li class="<%= journal_class %>">
+      <% coolness_class = "mute" if journal.is_cool? %>
+      <% future_class = "journal-future" if  @future.key?(journal.id)  %>
+      <li class="<%= coolness_class %> <%= future_class%>">
         <%= link_to journal.name, journal_path(journal) %>
       </li>
     <% end %>
