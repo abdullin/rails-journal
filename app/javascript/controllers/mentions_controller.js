@@ -41,7 +41,6 @@ export default class extends Controller {
   record_position(e) {
     if (e.key == '@') {
       this.startPos = this.editor.getPosition()
-      //this.tribute.showMenuForCollection(this.fieldTarget)
     }
   }
 
@@ -66,6 +65,5 @@ export default class extends Controller {
       content: mention.content
     })
     this.editor.insertAttachment(attachment)
-    // tthis.editor.insertString(" ")
   }
 }
