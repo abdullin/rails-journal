@@ -3,11 +3,13 @@ class HomeController < ApplicationController
   def index
     @groups = group_by_category Journal.not_cold
     @future = get_future_journals
+    @title = "Journals"
   end
 
-  def cold
+  def shelf
     @groups = group_by_category Journal.cold
     @future = get_future_journals
+    @title = "Shelf"
     render 'index'
   end
 

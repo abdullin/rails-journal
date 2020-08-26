@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'review/future'
 
   get 'home', to: 'home#index'
-  get 'home/cold', to: 'home#cold'
+  get 'home/shelf', to: 'home#shelf'
 
 
   root 'home#index'
