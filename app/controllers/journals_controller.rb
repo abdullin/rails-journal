@@ -25,6 +25,13 @@ class JournalsController < ApplicationController
     redirect_to journal
   end
 
+  def shelve
+    journal = Journal.find(params[:id])
+    journal.shelve
+    flash.notice = "Journal shelved"
+    redirect_to journal
+  end
+
 
   private
   def journal_params

@@ -17,4 +17,8 @@ class Journal < ApplicationRecord
   def is_cold?
     self.updated_at < (Date.today - COLD_AFTER)
   end
+
+  def shelve
+    self.touch(time: Date.today - (COLD_AFTER + 1.day))
+  end
 end
