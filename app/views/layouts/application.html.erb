@@ -19,13 +19,14 @@
         <%= link_to "Shelf", home_shelf_path %> ·
         <%= link_to "People", people_path %>
       </nav>
-
+      
       <% flash.each do |type, msg| %>
-        <div>
-          <%= msg %>
-        </div>
+        <%= content_tag :div, msg, class: "flash #{type}" %>
       <% end %>
+
       <main style="margin: 0 1em 2em 1em;">
+
+
         <%= yield %>
       </main>
     </div> 
