@@ -13,16 +13,13 @@
     </strong>
 
     <div class='note-actions mute'>
-
       <%= link_to note.created_at.strftime("%b %d"), note_path(note) %>
-    <strong>
-      <% if Date.current.year != note.created_at.year %>
-        <%= note.created_at.year %>
+      <strong>
+        <%= note.created_at.year if Date.current.year != note.created_at.year %>
+      </strong>
+      <% if note.future %>
+        · future
       <% end %>
-    </strong>
-    <% if note.future %>
-      · future
-    <% end %>
 
     · <%= link_to "edit", edit_note_path(id:note.id) %>
   </div>
