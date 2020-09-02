@@ -14,8 +14,10 @@ Rails.application.routes.draw do
     member do
       get :future, :shelve
     end
-    resources :notes, only: [:create, :new, :edit, :update, :destroy]
+    resources :notes, only: [:create, :new]
   end
+
+  resources :notes, only: [:show, :edit, :update, :destroy]
 
   resources :people, only: [:index, :show]
 

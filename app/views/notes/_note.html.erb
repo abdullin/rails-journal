@@ -12,9 +12,10 @@
     <% end %>
     </strong>
 
-  <div class='note-actions mute'>
+    <div class='note-actions mute'>
+
+      <%= link_to note.created_at.strftime("%b %d"), note_path(note) %>
     <strong>
-      <%= note.created_at.strftime("%b %d") %>
       <% if Date.current.year != note.created_at.year %>
         <%= note.created_at.year %>
       <% end %>
@@ -23,7 +24,7 @@
       · future
     <% end %>
 
-    · <%= link_to "edit", edit_journal_note_path(id:note.id, journal_id:note.journal.id) %>
+    · <%= link_to "edit", edit_note_path(id:note.id) %>
   </div>
 </div>
 <div class='note-content'>

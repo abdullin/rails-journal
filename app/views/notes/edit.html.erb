@@ -2,7 +2,7 @@
   Edit <%=@note.journal.name %>
 </h1>
 
-<%= form_with model: @note, url: journal_note_path(@note, journal_id: @note.journal_id) do |form| %>
+<%= form_with model: @note, url: note_path(@note) do |form| %>
   <div>
     <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"} %>
 
@@ -12,6 +12,6 @@
 
   <div style="text-align:right">
     <%= form.submit "Update", class: "button" %>
-    <%= link_to "Delete", journal_note_path(@note, journal_id:@note.journal_id),  :method => :delete %>
+    <%= link_to "Delete", note_path(@note),  :method => :delete %>
   </div>
 <% end %>
