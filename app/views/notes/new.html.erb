@@ -1,7 +1,6 @@
-<h1>
-  <%= @journal.name%>
-</h1>
+<% title "Add: #{@journal.name}" %>
 
+<h1><%= @journal.name %> - add</h1>
 <%= form_with model: @note, url: journal_notes_path(journal_id: @journal.id) do |form| %>
   <div class="field">
     <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"} %>

@@ -1,7 +1,5 @@
-<h1>
-  Edit <%=@note.journal.name %>
-</h1>
-
+<%= title "Edit #{@note.journal.name}" %>
+<h1>Edit <%= @note.journal.name %></h1>
 <%= form_with model: @note, url: note_path(@note) do |form| %>
   <div>
     <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"} %>
