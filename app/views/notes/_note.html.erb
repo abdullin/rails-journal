@@ -13,7 +13,7 @@
     </strong>
 
     <div class='note-actions mute'>
-      <%= link_to note.created_at.strftime("%b %d"), note_path(note) %>
+      <%= link_to note.created_at.strftime("%b %d"), note_path(note), title: "##{note.id}: #{note.created_at}" %>
       <strong>
         <%= note.created_at.year if Date.current.year != note.created_at.year %>
       </strong>
