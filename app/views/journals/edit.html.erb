@@ -1,6 +1,8 @@
-<% title "Edit #{@journal.name}" %>
-<h1>Edit <%=@journal.name %></h1>
+<% content_for :title do "Edit #{@journal.name}" end %>
 
+<h1>
+  Edit <%=@journal.name %>
+</h1>
 
 <%= form_with model: @journal, url: journal_path(@journal) do |form| %>
   <div class="field">

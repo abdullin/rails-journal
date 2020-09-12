@@ -1,5 +1,7 @@
-<% title @journal.name %>
-<h1><%= @journal.name %></h1>
+<% content_for :title do @journal.name end %>
+<h1>
+  <%= @journal.name %>
+</h1>
 
 <%= @journal.content %>
 <div class="journal_menu">
