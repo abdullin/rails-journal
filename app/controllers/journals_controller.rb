@@ -3,7 +3,6 @@ class JournalsController < ApplicationController
 
   def show
     @journal = Journal.find(params[:id])
-    @title = @journal.name
     @future_count = @journal.notes.future.count
     @notes = @journal.notes.visible.latest_first
   end

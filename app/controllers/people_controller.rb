@@ -6,6 +6,5 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-    @title = @person.name
   end
 end
