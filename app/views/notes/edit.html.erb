@@ -7,7 +7,7 @@
     <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"} %>
 
     <%= form.label :created_at %>
-    <%= form.datetime_field :created_at, class: "input", placeholder: Date.today.strftime("%F") %>
+    <%= form.datetime_field :created_at, class: "input", placeholder: @date_hint.strftime("%F") %>
   </div>
 
   <div style="text-align:right">
