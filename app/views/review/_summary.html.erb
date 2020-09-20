@@ -1,0 +1,7 @@
+<ul class="mute">
+  <% summary.content.body.fragment.find_all(:h1).map(&:text).each do | text | %>
+    <li> 
+      <%= summary.journal.name %>: 
+      <%= link_to text, note_path(summary) %></li>
+  <% end %>
+</ul>
