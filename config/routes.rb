@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :notes, only: [:show, :edit, :update, :destroy]
 
-  resources :people, only: [:index, :show]
+  resources :people, only: [:index, :show, :edit, :update]
 
   # only mentionable
   resources :mentions, only: [:index]

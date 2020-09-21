@@ -1,0 +1,13 @@
+<h1>Edit <%= @person.name %></h1>
+
+
+
+<%= form_with model: @person, url: person_path(@person) do |form| %>
+  <div>
+    <%= form.rich_text_area :content, data: { controller: "mentions", target:"mentions.field"} %>
+  </div>
+
+  <div style="text-align:right">
+    <%= form.submit "Update", class: "button" %>
+  </div>
+<% end %>
