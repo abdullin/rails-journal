@@ -3,6 +3,7 @@ class Note < ApplicationRecord
   belongs_to :journal
   has_rich_text :content
 
+  scope :not_archived, ->{ where(archived_at:nil) }
   scope :visible, -> { where(archived_at:nil).where("notes.created_at < ?", DateTime.now) }
   scope :future, ->  { where(archived_at:nil).where("notes.created_at > ?", DateTime.now) }
 

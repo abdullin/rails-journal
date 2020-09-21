@@ -1,7 +1,7 @@
 <h1>
   W<%= @date.cweek %>: 
-  <%=@date.beginning_of_week.strftime("%B %-d") %> - 
-  <%= @date.end_of_week.strftime("%B %-d")%>
+  <%=@date.beginning_of_week.strftime("%b %-d") %> - 
+  <%= @date.end_of_week.strftime("%b %-d")%>
 </h1>
 <div style="margin-bottom:1em">
   <% @categories.each_with_index do | cat, i | %>
@@ -17,9 +17,9 @@
 </div>
 
 <% @notes.group_by{ |n| n.created_at.to_date.cwday }.each do | cwday, notes | %>
-  <h2>
-    <%= notes.first.created_at.strftime("%A, %B %-d") %> 
-  </h2>
+  <h3>
+    <%= notes.first.created_at.strftime("%A, %b %-d") %> 
+  </h3>
 
   <%= render partial: "summary", collection: notes %>
 <% end %>

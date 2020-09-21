@@ -1,4 +1,5 @@
-<ul class="mute" style="padding-left:1em">
+<% clazz = "mute" unless summary.future %>
+<ul class="<%= clazz %>" style="padding-left:1em">
   <% summary.content.body.fragment.find_all(:h1).map(&:text).each do | text | %>
     <li> 
       <%= link_to summary.journal.name, note_path(summary) %>: 

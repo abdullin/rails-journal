@@ -5,7 +5,7 @@ class ReviewController < ApplicationController
     @delta = params[:week].to_i || 0
     @date = Date.today + @delta.week
 
-    notes = Note.visible.within_week(@date)
+    notes = Note.not_archived.within_week(@date)
 
     @category  = params.fetch(:category, -1).to_i
     notes = notes.with_category(@category) unless @category== -1
