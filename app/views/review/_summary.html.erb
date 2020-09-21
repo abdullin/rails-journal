@@ -1,7 +1,7 @@
-<ul class="mute">
+<ul class="mute" style="padding-left:1em">
   <% summary.content.body.fragment.find_all(:h1).map(&:text).each do | text | %>
     <li> 
-      <%= summary.journal.name %>: 
-      <%= link_to text, note_path(summary) %></li>
+      <%= link_to summary.journal.name, note_path(summary) %>: 
+      <%= text %>
   <% end %>
 </ul>

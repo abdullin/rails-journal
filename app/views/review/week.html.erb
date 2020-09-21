@@ -17,7 +17,7 @@
 </div>
 
 <% @notes.group_by{ |n| n.created_at.to_date.cwday }.each do | cwday, notes | %>
-  <h2 style="text-align:right">
+  <h2>
     <%= notes.first.created_at.strftime("%A, %B %-d") %> 
   </h2>
 

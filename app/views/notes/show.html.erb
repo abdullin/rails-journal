@@ -1,2 +1,8 @@
-<h1>View</h1>
+<h1>
+  <%=@note.journal.name%>:
+  <%= @note.id%>
+</h1>
+<div class="mute">
+  <%= link_to "Journal", journal_path(@note.journal) %>
+</div>
 <%= render @note %>
