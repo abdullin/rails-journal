@@ -1,8 +1,8 @@
 <h1>
   <%=@note.journal.name%>:
-  <%= @note.id%>
+  note <%= @note.id%>
 </h1>
-<div class="mute">
+<div class="mute" style="text-align:right">
   <%= link_to "Journal", journal_path(@note.journal) %>
 </div>
 <%= render @note %>
