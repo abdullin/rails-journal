@@ -3,6 +3,8 @@
 </h1>
 
 
-
 <%= render partial: "summary", collection: @notes %>
 
+<div class="review-summary">
+  <span><%= pluralize(@words, 'word') %>, <%= pluralize(@letters, 'char')%></span>
+</div>
