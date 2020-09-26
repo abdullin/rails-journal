@@ -1,7 +1,7 @@
 class MentionsController < ApplicationController
 
   def index
-    @mentions = Person.all.map do |p|
+    @mentions = Journal.people.all.map do |p|
       { 
         name: p.name, 
         sgid: p.attachable_sgid,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_120518) do
+ActiveRecord::Schema.define(version: 2020_09_26_103309) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_120518) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
+    t.string "kind"
     t.index ["category_id"], name: "index_journals_on_category_id"
   end
 
@@ -78,9 +79,12 @@ ActiveRecord::Schema.define(version: 2020_08_18_120518) do
     t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "journal_id"
+    t.index ["journal_id"], name: "index_people_on_journal_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "journals", "categories"
   add_foreign_key "notes", "journals"
+  add_foreign_key "people", "journals"
 end
