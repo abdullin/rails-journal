@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :notes, only: [:show, :edit, :update, :destroy]
+  resources :inbox, only: [:create, :new, :index, :move, :destroy]
 
-  resources :people, only: [:index, :show, :edit, :update]
+  resources :people, only: [:show]
 
   # only mentionable
   resources :mentions, only: [:index]
