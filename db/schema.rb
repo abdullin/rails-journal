@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_111400) do
+ActiveRecord::Schema.define(version: 2020_09_27_044046) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 2020_09_26_111400) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "archived_at"
     t.boolean "future", default: false
+    t.integer "bytes"
+    t.integer "char_count"
+    t.integer "word_count"
     t.index ["journal_id"], name: "index_notes_on_journal_id"
   end
 

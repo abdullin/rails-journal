@@ -6,5 +6,7 @@
 <%= render partial: "summary", collection: @notes %>
 
 <div class="review-summary">
-  <span><%= pluralize(@words, 'word') %>, <%= pluralize(@letters, 'char')%></span>
+  <span><%= pluralize(@word_count, 'word') %>, <%= pluralize(@char_count, 'char')%>, 
+    <%= number_to_human_size(@byte_count) %>
+  </span>
 </div>

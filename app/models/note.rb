@@ -14,10 +14,33 @@ class Note < ApplicationRecord
   scope :chronologically, -> { order(created_at: :asc) }
   scope :latest_first, -> { order(created_at: :desc) }
 
-  before_save :set_future_flag
+  before_save :set_future_flag, :compute_stats
+
+  def headers
+    content.body.fragment.find_all(:h1).map(&:text)
+  end
 
   private
   def set_future_flag
     self.future = created_at.present? && created_at.future? 
   end
+
+
+  def compute_stats
+    self.bytes = total_size 
+
+    text = content.to_plain_text
+    self.word_count = text.split.size
+    self.char_count = text.size
+  end
+
+  def total_size
+    content.body.attachments.reduce(0) { | n, a |
+      size = a.respond_to?(:byte_size) ? a.byte_size : 0
+      n + size
+    }
+  end
+
+
+
 end
