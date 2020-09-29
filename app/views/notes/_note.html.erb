@@ -1,29 +1,45 @@
+<% note_class = note.future ? "note-future" : "note-present" %>
+<div class='note-header <%= note_class %>'>
 
-  <% note_class = note.future ? "note-future" : "note-present" %>
-  <div class='note-header <%= note_class %>'>
+  <strong class="note-title">
+    <% if note.created_at > Date.today.end_of_day %>
+      in <%= time_ago_in_words(note.created_at) %>
+  <% elsif note.created_at.between?(7.days.ago,Date.today.end_of_day) %>
+    <%= note.created_at.strftime("%A") %>
+  <% else %>
+    <%= time_ago_in_words(note.created_at) %> ago
+  <% end %>
+  </strong>
 
-    <strong class="note-title">
-      <% if note.created_at > Date.today.end_of_day %>
-        in <%= time_ago_in_words(note.created_at) %>
-    <% elsif note.created_at.between?(7.days.ago,Date.today.end_of_day) %>
-      <%= note.created_at.strftime("%A") %>
-    <% else %>
-      <%= time_ago_in_words(note.created_at) %> ago
-    <% end %>
+  <div class='note-actions mute'>
+    <%= link_to note.created_at.strftime("%b %d"), note_path(note), title: "##{note.id}: #{note.created_at}" %>
+    <strong>
+      <%= note.created_at.year if Date.current.year != note.created_at.year %>
     </strong>
-
-    <div class='note-actions mute'>
-      <%= link_to note.created_at.strftime("%b %d"), note_path(note), title: "##{note.id}: #{note.created_at}" %>
-      <strong>
-        <%= note.created_at.year if Date.current.year != note.created_at.year %>
-      </strong>
-      <% if note.future %>
-        · future
-      <% end %>
+    <% if note.future %>
+      · future
+    <% end %>
 
     · <%= link_to "edit", edit_note_path(id:note.id) %>
   </div>
 </div>
-<div class='note-content'>
-  <%= note.content %>
-</div>
+
+<% if compact %>
+  <% if note.headers.any? %>
+    <% clazz = "mute" unless note.future %>
+    <ul class="<%= clazz %>" style="padding-left:1em">
+      <% note.headers.each do | text | %>
+        <li> 
+          <%= link_to note.journal.name, note_path(note) %>: 
+          <%= text %>
+        </li>
+        <% end %>
+    </ul>
+
+  <% else %>
+  <% end %>
+<% else %>
+  <div class='note-content'>
+    <%= note.content %>
+  </div>
+<% end %>

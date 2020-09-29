@@ -5,4 +5,4 @@
 <div class="mute" style="text-align:right">
   <%= link_to "Journal", journal_path(@note.journal) %>
 </div>
-<%= render @note %>
+<%= render partial:'note', locals:{note:@note, compact:false} %>

@@ -21,4 +21,4 @@
   </span>
 </div>
 
-<%= render @notes %>
+<%= render partial:'notes/note', collection:@notes, :locals => {:compact => true} %>
