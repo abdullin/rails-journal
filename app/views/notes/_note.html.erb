@@ -25,19 +25,15 @@
 </div>
 
 <% if compact %>
-  <% if note.headers.any? %>
-    <% clazz = "mute" unless note.future %>
-    <ul class="<%= clazz %>" style="padding-left:1em">
-      <% note.headers.each do | text | %>
-        <li> 
-          <%= link_to note.journal.name, note_path(note) %>: 
-          <%= text %>
-        </li>
-        <% end %>
-    </ul>
-
-  <% else %>
-  <% end %>
+  <% clazz = "mute" unless note.future %>
+  <ul class="<%= clazz %>" style="padding-left:1em">
+    <% note.headers.each do | text | %>
+      <li> 
+        <%= link_to note.journal.name, note_path(note) %>: 
+        <%= text %>
+      </li>
+    <% end %>
+  </ul>
 <% else %>
   <div class='note-content'>
     <%= note.content %>

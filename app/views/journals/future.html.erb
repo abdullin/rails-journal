@@ -6,4 +6,5 @@
     <%= link_to "back", journal_path(@journal) %>
 </div>
 
-<%= render @notes %>
+
+<%= render partial:'notes/note', collection:@notes, :locals => {:compact => false} %>
