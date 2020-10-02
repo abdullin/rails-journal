@@ -3,6 +3,7 @@
   note <%= @note.id%>
 </h1>
 <div class="mute" style="text-align:right">
-  <%= link_to "Journal", journal_path(@note.journal) %>
+  <%= link_to "Journal", journal_path(@note.journal) %> · 
+  <%= link_to "add", new_journal_note_path(@note.journal) %>
 </div>
 <%= render partial:'note', locals:{note:@note, compact:false} %>
