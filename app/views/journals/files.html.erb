@@ -1,0 +1,10 @@
+<h1>Files</h1>
+
+
+  <div class="pinboard">
+    <% @files.each do | file| %>
+      <div class="item">
+        <%= render file.attachable %>
+        <div>
+<% end %>
+  </div>

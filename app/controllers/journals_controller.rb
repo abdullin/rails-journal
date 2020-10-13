@@ -12,6 +12,13 @@ class JournalsController < ApplicationController
     @notes = @journal.notes.future.chronologically
   end
 
+  def files
+    @files = Journal.find(params[:id]).
+      notes.with_rich_text_content_and_embeds.
+      map{ | n | n.content.body.attachments }.
+      flatten.filter { |a| a.attachable.class.name=="ActiveStorage::Blob" }.reverse
+  end
+
 
   def edit
     @journal = Journal.find(params[:id])

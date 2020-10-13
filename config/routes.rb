@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :journals, only: [:show, :edit, :update] do
     member do
-      get :future, :shelve
+      get :future, :shelve, :files
     end
     resources :notes, only: [:create, :new]
   end

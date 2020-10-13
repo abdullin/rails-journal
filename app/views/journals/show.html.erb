@@ -13,6 +13,7 @@
 
     <strong><%= link_to "add", new_journal_note_path(journal_id: @journal.id)%></strong> ·
     <%= link_to "shelve", shelve_journal_path(@journal) %> ·
+    <%= link_to "files", files_journal_path(@journal) %> ·
     <%= link_to "edit", edit_journal_path(@journal) %> 
     <% if not @journal.plain? %>
       · <%= @journal.kind  %>
