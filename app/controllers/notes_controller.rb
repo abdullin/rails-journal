@@ -1,3 +1,5 @@
+require 'chronic'
+
 class NotesController < ApplicationController
 
   def new
@@ -44,6 +46,14 @@ class NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:content, :created_at)
+    p = params.require(:note).permit(:content, :created_at)
+
+    p[:created_at] = parse_time(p[:created_at])
+    p
+  end
+
+  def parse_time(arg)
+    return arg if arg.blank? or arg.starts_with?("202")
+    Chronic.parse(arg)
   end
 end
